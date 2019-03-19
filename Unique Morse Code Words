@@ -1,0 +1,16 @@
+//Runtime:4 ms Memory:9.2 MB
+
+class Solution {
+public:
+    int uniqueMorseRepresentations(vector<string>& words) {
+        string codemap[] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+        unordered_set<string> s;
+        for (const string& word : words) {
+          string code;
+          for (char c : word)
+            code += codemap[c - 'a'];
+          s.insert(code);
+        }
+        return s.size();
+    }
+};
